@@ -109,3 +109,22 @@ img.product-image,
     object-fit: cover !important;
   }
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  min-height: 55px;
+}
+
+.card-content p {
+  margin-top: auto;
+}
