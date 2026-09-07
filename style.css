@@ -127,4 +127,38 @@ img.product-image,
 .card-content p {
   overflow: hidden;
 }
-  
+/* ORGANISATION DES VÊTEMENTS */
+
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  align-items: start !important;
+}
+
+.card {
+  width: 100% !important;
+}
+
+/* Photos toutes de la même taille */
+.card img,
+.product-image {
+  width: 100% !important;
+  aspect-ratio: 4 / 5 !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Téléphone : 1 vêtement par ligne */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Tablette : 2 vêtements par ligne */
+@media (min-width: 601px) and (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
