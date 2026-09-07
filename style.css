@@ -127,38 +127,48 @@ img.product-image,
 .card-content p {
   overflow: hidden;
 }
-/* ORGANISATION DES VÊTEMENTS */
+/* GRILLE DES VÊTEMENTS */
 
 .grid {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 20px !important;
-  align-items: start !important;
+  align-items: stretch !important;
 }
 
+/* Toutes les cartes ont la même largeur */
 .card {
   width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
 }
 
-/* Photos toutes de la même taille */
+/* Toutes les photos ont exactement le même format */
 .card img,
+img.product-image,
 .product-image {
   width: 100% !important;
-  aspect-ratio: 4 / 5 !important;
+  height: 400px !important;
   object-fit: cover !important;
   display: block !important;
 }
 
-/* Téléphone : 1 vêtement par ligne */
+/* TABLETTE : 2 par ligne */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* TÉLÉPHONE : 1 par ligne */
 @media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr !important;
   }
-}
 
-/* Tablette : 2 vêtements par ligne */
-@media (min-width: 601px) and (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .card img,
+  img.product-image,
+  .product-image {
+    height: 450px !important;
   }
 }
