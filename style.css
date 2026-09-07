@@ -51,10 +51,10 @@ h2 { font-size: clamp(2.2rem, 4vw, 4rem); }
 .card { background: var(--paper); border: 1px solid var(--line); transition: transform .25s, box-shadow .25s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.06); }
 .product-image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  display: block;
+  aspect-ratio: 4/5;
+  display: grid;
+  place-items: center;
+  background: #e8e4de;
   color: #8c857c; letter-spacing: .15em; font-size: .75rem;
 }
 .card-content { padding: 22px; }
@@ -86,4 +86,26 @@ footer { padding: 30px 6%; text-align: center; color: var(--muted); font-size: .
   .grid { grid-template-columns: 1fr; }
   .section { padding: 80px 7%; }
   .contact-links { flex-direction: column; align-items: center; }
+}
+/* CORRECTION DES PHOTOS - 19e PAGE */
+
+.card img,
+img.product-image,
+.product-image-real {
+  width: 100% !important;
+  height: 450px !important;
+  aspect-ratio: 4 / 5 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+@media (max-width: 520px) {
+  .card img,
+  img.product-image,
+  .product-image-real {
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    object-fit: cover !important;
+  }
 }
