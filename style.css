@@ -84,71 +84,78 @@ footer { padding: 30px 6%; text-align: center; color: var(--muted); font-size: .
   .section { padding: 80px 7%; }
   .contact-links { flex-direction: column; align-items: center; }
 }
-/* =========================================
-   GRILLE PRODUITS : 3 PAR LIGNE
-   TOUTES LES CARTES IDENTIQUES
-========================================= */
+/* =====================================
+   CORRECTION FINALE DES CREATIONS
+   3 CARTES IDENTIQUES PAR LIGNE
+===================================== */
 
-/* La zone contenant tous les vêtements */
+/* Conteneur des vêtements */
 .grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 20px !important;
-  align-items: stretch !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 25px !important;
+    width: 100% !important;
+    align-items: stretch !important;
 }
 
-/* Chaque vêtement */
-.grid .card {
-  width: 100% !important;
-  height: 650px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow: hidden !important;
+/* Chaque carte */
+.grid > .card {
+    width: 100% !important;
+    height: 650px !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    overflow: hidden !important;
 }
 
-/* Toutes les photos exactement identiques */
-.grid .card img {
-  width: 100% !important;
-  height: 450px !important;
-  min-height: 450px !important;
-  max-height: 450px !important;
-  object-fit: cover !important;
-  display: block !important;
+/* Zone photo : exactement la même taille */
+.grid > .card img {
+    width: 100% !important;
+    height: 400px !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    display: block !important;
 }
 
-/* Zone texte exactement identique */
-.grid .card-content {
-  height: 200px !important;
-  min-height: 200px !important;
-  max-height: 200px !important;
-  overflow: hidden !important;
-  padding: 20px !important;
+/* Zone contenant le texte */
+.grid > .card .card-content {
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+
+    padding: 30px !important;
 }
 
-/* Le titre */
-.grid .card-content h3 {
-  height: 35px !important;
-  overflow: hidden !important;
-  margin-bottom: 10px !important;
+/* Titre */
+.grid > .card .card-content h3 {
+    margin-top: 0 !important;
 }
 
-/* La description */
-.grid .card-content p {
-  height: 100px !important;
-  overflow: hidden !important;
-  margin: 0 !important;
+/* Description */
+.grid > .card .card-content p {
+    margin-bottom: 0 !important;
 }
 
-/* TABLETTE : 2 par ligne */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
+/* TABLETTE */
+@media screen and (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
 }
 
-/* TELEPHONE : 1 par ligne */
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
+/* TELEPHONE */
+@media screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
 }
