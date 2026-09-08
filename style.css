@@ -51,10 +51,7 @@ h2 { font-size: clamp(2.2rem, 4vw, 4rem); }
 .card { background: var(--paper); border: 1px solid var(--line); transition: transform .25s, box-shadow .25s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.06); }
 .product-image {
-  aspect-ratio: 4/5;
-  display: grid;
-  place-items: center;
-  background: #e8e4de;
+  aspect-ratio: 4/5; display: grid; place-items: center; background: #e8e4de;
   color: #8c857c; letter-spacing: .15em; font-size: .75rem;
 }
 .card-content { padding: 22px; }
@@ -87,88 +84,71 @@ footer { padding: 30px 6%; text-align: center; color: var(--muted); font-size: .
   .section { padding: 80px 7%; }
   .contact-links { flex-direction: column; align-items: center; }
 }
-/* CORRECTION DES PHOTOS - 19e PAGE */
+/* =========================================
+   GRILLE PRODUITS : 3 PAR LIGNE
+   TOUTES LES CARTES IDENTIQUES
+========================================= */
 
-.card img,
-img.product-image,
-.product-image-real {
-  width: 100% !important;
-  height: 450px !important;
-  aspect-ratio: 4 / 5 !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  display: block !important;
-}
-
-@media (max-width: 520px) {
-  .card img,
-  img.product-image,
-  .product-image-real {
-    height: auto !important;
-    aspect-ratio: 4 / 5 !important;
-    object-fit: cover !important;
-  }
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.card-content {
-  height: 170px;
-  overflow: hidden;
-}
-
-.card-content h3 {
-  height: 55px;
-  overflow: hidden;
-}
-
-.card-content p {
-  overflow: hidden;
-}
-/* GRILLE DES VÊTEMENTS */
-
+/* La zone contenant tous les vêtements */
 .grid {
   display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: 20px !important;
   align-items: stretch !important;
 }
 
-/* Toutes les cartes ont la même largeur */
-.card {
+/* Chaque vêtement */
+.grid .card {
   width: 100% !important;
-  min-width: 0 !important;
+  height: 650px !important;
+  display: flex !important;
+  flex-direction: column !important;
   overflow: hidden !important;
 }
 
-/* Toutes les photos ont exactement le même format */
-.card img,
-img.product-image,
-.product-image {
+/* Toutes les photos exactement identiques */
+.grid .card img {
   width: 100% !important;
-  height: 400px !important;
+  height: 450px !important;
+  min-height: 450px !important;
+  max-height: 450px !important;
   object-fit: cover !important;
   display: block !important;
+}
+
+/* Zone texte exactement identique */
+.grid .card-content {
+  height: 200px !important;
+  min-height: 200px !important;
+  max-height: 200px !important;
+  overflow: hidden !important;
+  padding: 20px !important;
+}
+
+/* Le titre */
+.grid .card-content h3 {
+  height: 35px !important;
+  overflow: hidden !important;
+  margin-bottom: 10px !important;
+}
+
+/* La description */
+.grid .card-content p {
+  height: 100px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
 }
 
 /* TABLETTE : 2 par ligne */
 @media (max-width: 900px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
-/* TÉLÉPHONE : 1 par ligne */
+/* TELEPHONE : 1 par ligne */
 @media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr !important;
-  }
-
-  .card img,
-  img.product-image,
-  .product-image {
-    height: 450px !important;
   }
 }
